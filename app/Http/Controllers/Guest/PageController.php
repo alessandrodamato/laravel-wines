@@ -10,12 +10,14 @@ class PageController extends Controller
 {
   public function index()
   {
-    $wines = Wine::paginate(10);
+    $wines = Wine::paginate(9);
     return view('home', compact('wines'));
   }
 
-  public function wineDetail()
+  public function wineDetail($id)
   {
-    return view('wine-detail');
+    $wine = Wine::find($id);
+
+    return view('wine-detail', compact('wine'));
   }
 }

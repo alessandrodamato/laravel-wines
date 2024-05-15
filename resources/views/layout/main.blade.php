@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- Styles -->
-    @vite('resources/js/app.js')
+  <!-- Styles -->
+  @vite('resources/js/app.js')
 
-    <title>Template</title>
+  <title>Template</title>
 </head>
-<body>
-    @include('partials.header')
 
-    <main>
-        @yield('content')
-    </main>
+<body class=" bg-secondary ">
+  @include('partials.header')
 
-    @include('partials.footer')
+  <main>
+    @yield('content')
+  </main>
+
 </body>
+
 </html>
