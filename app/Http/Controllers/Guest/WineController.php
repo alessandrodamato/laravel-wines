@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Wine;
 use App\functions\helper;
+use App\Http\Requests\WineRequest;
 
 class WineController extends Controller
 {
@@ -33,7 +34,7 @@ class WineController extends Controller
   /**
    * Store a newly created resource in storage.
    */
-  public function store(Request $request)
+  public function store(WineRequest $request)
   {
     $formData=$request->all();
 
@@ -71,7 +72,7 @@ class WineController extends Controller
   /**
    * Update the specified resource in storage.
    */
-  public function update(Request $request, Wine $wine)
+  public function update(WineRequest $request, Wine $wine)
   {
 
     $formData = $request->all();
