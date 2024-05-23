@@ -59,17 +59,33 @@ class WineController extends Controller
   /**
    * Show the form for editing the specified resource.
    */
-  public function edit(string $id)
+  public function edit(Wine $wine)
   {
-    // return view('wines.edit-create');
+
+    $method= 'PUT';
+    $route= route('wines.update', $wine);
+
+    return view('wines.edit-create', compact('method', 'route', 'wine'));
   }
 
   /**
    * Update the specified resource in storage.
    */
-  public function update(Request $request, string $id)
+  public function update(Request $request, Wine $wine)
   {
-    //
+
+    $formData = $request->all();
+
+    if($formData['wine'] === $wine->wine){
+      $formData['slug'] = $wine->slug;
+    }else{
+        $formData['slug'] = Helper::generateSlug($formData['wine'], new Wine());
+    }
+
+    $wine->update($formData);
+
+    return redirect()->route('wines.show', $wine);
+
   }
 
   /**
