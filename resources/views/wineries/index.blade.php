@@ -4,6 +4,16 @@
     <div class="container text-white ">
         <h1 class=" text-center py-4">Le nostre Vigne</h1>
 
+        <div class="w-100">
+          <form action="{{route('wineries.store')}}" method="post">
+            @csrf
+            <input type="text" name="name">
+            <button type="submit" >invia</button>
+
+          </form>
+
+        </div>
+
         <table class="table">
             <thead>
                 <tr class="text-center">
@@ -28,7 +38,12 @@
                             <div class="d-flex justify-content-center ">
                                 <button class="btn btn-warning me-2" onclick="submitForm({{ $winery->id }})"><i
                                         class="fa-solid fa-pen"></i></button>
-                                <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                                <form action="{{route('wineries.destroy', $winery)}}" method="POST" >
+                                  @csrf
+                                  @method('DELETE')
+                                  <button type="submit"class="btn btn-danger"><i
+                                        class="fa-solid fa-trash"></i></button>
+                                </form>
                             </div>
                         </td>
                     </tr>

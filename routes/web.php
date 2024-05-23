@@ -19,4 +19,6 @@ use App\Http\Controllers\Guest\WineryController;
 Route::get('/', [PageController::class, 'index'])->name('home');
 
 Route::resource('wines', WineController::class);
-Route::resource('wineries', WineryController::class);
+Route::resource('wineries', WineryController::class)->except([
+  'edit','create','show'
+]);
