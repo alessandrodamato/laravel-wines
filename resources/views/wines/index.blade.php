@@ -13,6 +13,11 @@
               <h5 class="card-title">{{ $wine->wine }}</h5>
               <a href="{{ route('wines.show', $wine) }}" class="btn btn-primary">Info</a>
               <a href="{{ route('wines.edit', $wine) }}" class="btn btn-warning">Modifica</a>
+              <form action="{{route('wines.destroy', $wine)}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit"class="btn btn-danger">Elimina</button>
+              </form>
             </div>
           </div>
         </div>
