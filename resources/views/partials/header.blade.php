@@ -12,6 +12,9 @@
             <a class="nav-link  text-white " aria-current="page" href="{{ route('wines.index') }}">Lista
               vini</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link  text-white " aria-current="page" href="{{ route('wines.create') }}">crea nuovo vino</a>
+          </li>
         </ul>
       </div>
     </div>
