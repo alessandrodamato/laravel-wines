@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Guest\PageController;
 use App\Http\Controllers\Guest\WineController;
+use App\Http\Controllers\Guest\WineryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +19,4 @@ use App\Http\Controllers\Guest\WineController;
 Route::get('/', [PageController::class, 'index'])->name('home');
 
 Route::resource('wines', WineController::class);
+Route::resource('wineries', WineryController::class);
