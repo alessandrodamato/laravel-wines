@@ -36,9 +36,10 @@ class WineController extends Controller
   /**
    * Display the specified resource.
    */
-  public function show(string $id)
+  public function show(Wine $wine)
   {
-    //
+
+    return view('wines.show', compact('wine'));
   }
 
   /**

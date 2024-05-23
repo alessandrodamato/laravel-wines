@@ -15,7 +15,6 @@
         <p class="pt-3"><strong>Voto Medio: </strong>{{ $wine->rating_average }}</p>
         <p class="pt-3"><strong>Numero di Recensioni: </strong>{{ $wine->rating_reviews }}</p>
         <p class="pt-3"><strong>Origine: </strong>{{ $wine->location }}</p>
-
       </div>
     </div>
 

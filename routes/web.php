@@ -18,5 +18,3 @@ use App\Http\Controllers\Guest\WineController;
 Route::get('/', [PageController::class, 'index'])->name('home');
 
 Route::resource('wines', WineController::class);
-
-Route::get('/dettaglio-vino/{id}', [PageController::class, 'wineDetail'])->name('wine-detail');
