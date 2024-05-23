@@ -31,6 +31,12 @@ class WineryController extends Controller
    */
   public function store(Request $request)
   {
+    $formData = $request->all();
+    $newWinery = new Winery();
+    $formData['slug']=helper::generateSlug($formData['name'], Winery::class);
+    $newWinery->fill($formData);
+    $newWinery->save();
+    return redirect()->route('wineries.index');
   }
 
   /**
@@ -70,8 +76,9 @@ class WineryController extends Controller
   /**
    * Remove the specified resource from storage.
    */
-  public function destroy(string $id)
+  public function destroy(Winery $winery)
   {
-    //
+    $winery->delete();
+    return redirect()->route('wineries.index');
   }
 }
