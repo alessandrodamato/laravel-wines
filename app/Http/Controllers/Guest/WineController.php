@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Guest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Wine;
+use App\functions\helper;
 
 class WineController extends Controller
 {
@@ -22,7 +23,11 @@ class WineController extends Controller
    */
   public function create()
   {
-    //
+    $method= 'POST';
+    $route= route('wines.store');
+    $wine=null;
+
+    return view('wines.edit-create', compact('method','route','wine'));
   }
 
   /**
@@ -30,7 +35,16 @@ class WineController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    $formData=$request->all();
+
+    $formData['slug']= helper::generateSlug($formData['wine'], Wine::class);
+    $newWine= new Wine();
+    $newWine->fill($formData);
+    $newWine->save();
+
+    return redirect()->route('wines.show', $newWine);
+
+
   }
 
   /**
@@ -47,7 +61,7 @@ class WineController extends Controller
    */
   public function edit(string $id)
   {
-    //
+    // return view('wines.edit-create');
   }
 
   /**
